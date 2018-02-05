@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BakingApplication</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="nutella_pie">Nutella Pie</string>
+    <string name="servings">Servings:</string>
+    <string name="steps">Steps:</string>
+    <string name="pastry_name">Nutella Pie</string>
+    <string name="detail_fragment_ingredients_title">Ingredients</string>
+    <string name="short_step_description">Prep the cookie crust.</string>
+    <string name="ingredients_button_text">Ingredients</string>
+    <string name="long_step_description"><![CDATA[Whisk the graham cracker crumbs, 50 grams (&#188; cup) of sugar, and &#189; teaspoon of salt together in a medium bowl. Pour the melted butter and 1 teaspoon of vanilla into the dry ingredients and stir together until evenly mixed.]]></string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="no_connectivity_error_message">Baking application requires internet connectivity when it is opened for the first time. Please try again once connectivity has been restored.</string>
+</resources>

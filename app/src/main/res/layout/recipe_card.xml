@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/recipe_card_height"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recipe_cardview"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="5dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/cardview_very_light_background">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recipe_card_constraint_layout"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.example.android.bakingapplication.view.view.activity.MainActivity">
+
+        <android.support.constraint.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/recipe_card_height"
+            android:id="@+id/vertical_guideline_center"
+            app:layout_constraintGuide_percent="0.5"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <ImageView
+            android:id="@+id/recipe_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/vertical_guideline_center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dessert_name"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/pastry_name"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/vertical_guideline_center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/number_of_servings"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/number_of_steps"
+            android:text="@string/steps"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/dessert_name"
+            app:layout_constraintTop_toTopOf="@+id/number_of_ingredients"
+            app:layout_constraintRight_toLeftOf="@+id/dessert_name"
+            app:layout_constraintLeft_toRightOf="@+id/dessert_name"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/number_of_ingredients"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:text="@string/ingredients"
+            app:layout_constraintLeft_toRightOf="@+id/dessert_name"
+            app:layout_constraintRight_toLeftOf="@+id/dessert_name"
+            app:layout_constraintTop_toBottomOf="@+id/number_of_steps"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/number_of_servings"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:text="@string/servings"
+            app:layout_constraintLeft_toRightOf="@+id/dessert_name"
+            app:layout_constraintRight_toLeftOf="@+id/dessert_name"
+            app:layout_constraintTop_toBottomOf="@+id/number_of_ingredients"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

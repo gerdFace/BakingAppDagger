@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--if running on screen larger than 600dp the activity_two_pane layout will be used-->
+    <item name="activity_master_detail" type="layout">@layout/activity_two_pane</item>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--if running on screen smaller than 600dp the activity_detail_list layout will be used-->
+    <item name="activity_master_detail" type="layout">@layout/activity_detail_list</item>
+</resources>
