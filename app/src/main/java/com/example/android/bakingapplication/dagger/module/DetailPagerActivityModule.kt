@@ -8,7 +8,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module(includes = [RecipeRepositoryModule::class])
-class DetailPagerActivityPresenterModule {
+class DetailPagerActivityModule {
 
     @Provides
     fun provideDetailPagerActivityPresenter(recipeRepository: RecipeRepository): DetailPagerActivityPresenter {

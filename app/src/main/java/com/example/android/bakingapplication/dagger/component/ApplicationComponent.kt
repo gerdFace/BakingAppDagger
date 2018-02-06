@@ -11,10 +11,10 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
-    MainActivityPresenterModule::class,
-    DetailPagerActivityPresenterModule::class,
-    IngredientsFragmentPresenterModule::class,
-    DetailListFragmentPresenterModule::class,
+    MainActivityModule::class,
+    DetailPagerActivityModule::class,
+    IngredientsFragmentModule::class,
+    DetailListFragmentModule::class,
     RealmModule::class
 ])
 interface ApplicationComponent {
@@ -29,5 +29,5 @@ interface ApplicationComponent {
 
     fun inject(target: IngredientsFragment)
 
-    fun plus(module: StepFragmentPresenterModule): StepFragmentSubcomponent
+    fun plus(module: StepFragmentModule): StepFragmentSubcomponent
 }

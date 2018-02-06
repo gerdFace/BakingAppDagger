@@ -7,12 +7,12 @@ import com.example.android.bakingapplication.dagger.component.ApplicationCompone
 import com.example.android.bakingapplication.dagger.component.DaggerApplicationComponent
 import com.example.android.bakingapplication.dagger.component.StepFragmentSubcomponent
 import com.example.android.bakingapplication.dagger.module.AppModule
-import com.example.android.bakingapplication.dagger.module.StepFragmentPresenterModule
+import com.example.android.bakingapplication.dagger.module.StepFragmentModule
 
 class BakingApplication : Application() {
 
     lateinit var applicationComponent: ApplicationComponent
-    private var stepFragmentComponent: StepFragmentSubcomponent? = null
+    private var stepFragmentSubcomponent: StepFragmentSubcomponent? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -25,11 +25,11 @@ class BakingApplication : Application() {
                 .build()
     }
 
-        fun createStepFragmentComponent(stepFragmentContext: Context): StepFragmentSubcomponent {
-        return applicationComponent.plus(StepFragmentPresenterModule(stepFragmentContext))
+    fun createStepFragmentComponent(stepFragmentContext: Context): StepFragmentSubcomponent {
+        return applicationComponent.plus(StepFragmentModule(stepFragmentContext))
     }
 
     fun releaseStepFragmentComponent() {
-        stepFragmentComponent = null
+        stepFragmentSubcomponent = null
     }
 }

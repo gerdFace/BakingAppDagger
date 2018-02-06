@@ -7,7 +7,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module(includes = [RecipeRepositoryModule::class])
-class DetailListFragmentPresenterModule {
+class DetailListFragmentModule {
 
     @Provides
     fun provideDetailListFragmentPresenter(recipeRepository: RecipeRepository): DetailListFragmentPresenter {

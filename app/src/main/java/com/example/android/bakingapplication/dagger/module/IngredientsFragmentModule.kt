@@ -8,7 +8,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module(includes = [RecipeRepositoryModule::class])
-class IngredientsFragmentPresenterModule {
+class IngredientsFragmentModule {
 
     @Provides
     fun provideIngredientsFragmentPresenter(recipeRepository: RecipeRepository): IngredientsFragmentPresenter {

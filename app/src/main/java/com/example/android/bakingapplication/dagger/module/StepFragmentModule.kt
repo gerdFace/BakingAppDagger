@@ -10,7 +10,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class StepFragmentPresenterModule(private val stepFragmentContext: Context) {
+class StepFragmentModule(private val stepFragmentContext: Context) {
 
     @Provides
     fun provideStepFragmentPresenter(recipeRepository: RecipeRepository): StepFragmentPresenter {

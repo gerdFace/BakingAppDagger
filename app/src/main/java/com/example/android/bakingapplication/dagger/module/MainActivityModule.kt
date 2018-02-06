@@ -8,7 +8,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module(includes = [RecipeRepositoryModule::class])
-class MainActivityPresenterModule {
+class MainActivityModule {
 
     @Provides
     fun provideMainActivityPresenter(recipeRepository: RecipeRepository): MainActivityPresenter {
