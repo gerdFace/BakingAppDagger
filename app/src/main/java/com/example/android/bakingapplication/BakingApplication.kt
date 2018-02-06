@@ -25,8 +25,9 @@ class BakingApplication : Application() {
                 .build()
     }
 
-        fun createStepFragmentComponent(stepFragmentContext: Context): StepFragmentSubcomponent {
+    fun createStepFragmentComponent(stepFragmentContext: Context): StepFragmentSubcomponent {
         return applicationComponent.plus(StepFragmentPresenterModule(stepFragmentContext))
+                .apply { stepFragmentComponent = this }
     }
 
     fun releaseStepFragmentComponent() {
