@@ -49,12 +49,11 @@ class StepFragment : Fragment(), StepFragmentView {
     private var stepIndex: Int = 0
 
     private val constraintSet = ConstraintSet()
-    private val application: BakingApplication
-        get() = activity!!.application as BakingApplication
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        application.createStepFragmentComponent(context!!).inject(this)
+        (activity?.application as BakingApplication).createStepFragmentSubcomponent(context!!)
+                .inject(this)
     }
 
 // View bindings, etc
@@ -162,7 +161,7 @@ class StepFragment : Fragment(), StepFragmentView {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        application. releaseStepFragmentComponent()
+        (activity?.application as BakingApplication).releaseStepFragmentSubcomponent()
     }
 
     private fun setDescriptionText(shortStepDescription: String, longStepDescription: String) {
