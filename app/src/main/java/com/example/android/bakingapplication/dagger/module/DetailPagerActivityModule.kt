@@ -7,7 +7,7 @@ import com.example.android.bakingapplication.repository.RecipeRepository
 import dagger.Module
 import dagger.Provides
 
-@Module(includes = [RecipeRepositoryModule::class])
+@Module
 class DetailPagerActivityModule {
 
     @Provides

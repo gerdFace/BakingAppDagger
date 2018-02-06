@@ -11,11 +11,12 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
+    AppModule::class,
     MainActivityModule::class,
     DetailPagerActivityModule::class,
     IngredientsFragmentModule::class,
     DetailListFragmentModule::class,
-    RealmModule::class
+    RecipeRepositoryModule::class
 ])
 interface ApplicationComponent {
 

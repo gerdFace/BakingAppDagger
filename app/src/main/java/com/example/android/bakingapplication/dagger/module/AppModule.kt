@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module
+@Module(includes = [RealmModule::class])
 class AppModule(private val application: Application) {
 
     @Provides

@@ -7,7 +7,7 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import javax.inject.Singleton
 
-@Module(includes = [AppModule::class])
+@Module
 class RealmModule {
 
     @Provides
