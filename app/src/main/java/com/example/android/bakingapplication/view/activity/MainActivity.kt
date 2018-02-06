@@ -10,31 +10,26 @@ import android.view.View
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
-import com.example.android.bakingapplication.BakingApplication
 import com.example.android.bakingapplication.R
 import com.example.android.bakingapplication.adapter.RecipeCardAdapter
 import com.example.android.bakingapplication.model.RecipeData
 import com.example.android.bakingapplication.presentation.MainActivityPresenter
+import dagger.android.AndroidInjection
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), RecipeCardAdapter.RecipeCardAdapterOnClickHandler, MainActivityView {
 
+    @Inject lateinit var mainActivityPresenter: MainActivityPresenter
+
+    @BindView(R.id.rv_recipe_list) lateinit var recipeCardRecyclerView: RecyclerView
+    @BindView(R.id.connectivity_error_message) lateinit var connectivityErrorMessage: TextView
+
     private var layoutManagerSavedState: Parcelable? = null
 
-    @Inject
-    lateinit var mainActivityPresenter: MainActivityPresenter
-
-    @BindView(R.id.rv_recipe_list)
-    lateinit var recipeCardRecyclerView: RecyclerView
-
-    @BindView(R.id.connectivity_error_message)
-    lateinit var connectivityErrorMessage: TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        (application as BakingApplication).applicationComponent.inject(this)
 
         ButterKnife.bind(this)
     }
