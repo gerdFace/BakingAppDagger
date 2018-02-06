@@ -3,7 +3,6 @@ package com.example.android.bakingapplication.dagger.component
 import com.example.android.bakingapplication.BakingApplication
 import com.example.android.bakingapplication.BakingApplicationWidget
 import com.example.android.bakingapplication.dagger.module.*
-import com.example.android.bakingapplication.view.activity.DetailPagerActivity
 import com.example.android.bakingapplication.view.fragment.DetailListFragment
 import com.example.android.bakingapplication.view.fragment.IngredientsFragment
 import dagger.Component
@@ -28,8 +27,6 @@ interface ApplicationComponent {
     fun inject(target: BakingApplicationWidget)
 
     fun inject(target: DetailListFragment)
-
-    fun inject(target: DetailPagerActivity)
 
     fun inject(target: IngredientsFragment)
 

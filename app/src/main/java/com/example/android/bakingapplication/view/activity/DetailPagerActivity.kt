@@ -8,13 +8,13 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import butterknife.BindView
 import butterknife.ButterKnife
-import com.example.android.bakingapplication.BakingApplication
 import com.example.android.bakingapplication.R
 import com.example.android.bakingapplication.model.Step
 import com.example.android.bakingapplication.presentation.DetailPagerActivityPresenter
 import com.example.android.bakingapplication.view.activity.DetailListActivity.Companion.ID_OF_RECIPE_SELECTED
 import com.example.android.bakingapplication.view.activity.DetailListActivity.Companion.NAME_OF_FOOD_SELECTED
 import com.example.android.bakingapplication.view.fragment.StepFragment
+import dagger.android.AndroidInjection
 import javax.inject.Inject
 
 class DetailPagerActivity : AppCompatActivity(), DetailPagerActivityView {
@@ -30,10 +30,9 @@ class DetailPagerActivity : AppCompatActivity(), DetailPagerActivityView {
     private var fragmentStatePagerAdapter: FragmentStatePagerAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_pager)
-
-        (application as BakingApplication).applicationComponent.inject(this)
 
         ButterKnife.bind(this)
 
