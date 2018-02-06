@@ -12,10 +12,7 @@ import io.realm.Realm
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
-@Module(includes = [
-    RealmModule::class,
-    NetworkModule::class
-])
+@Module
 class RecipeRepositoryModule {
 
     @Singleton

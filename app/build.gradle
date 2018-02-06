@@ -67,7 +67,7 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:${daggerVersion}"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
 
 
     androidTestImplementation "com.google.dagger:dagger:${daggerVersion}"

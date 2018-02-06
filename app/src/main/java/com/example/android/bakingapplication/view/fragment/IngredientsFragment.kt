@@ -20,8 +20,7 @@ import javax.inject.Inject
 
 class IngredientsFragment : Fragment(), IngredientsFragmentView {
 
-    @Inject
-    lateinit var ingredientsFragmentPresenter: IngredientsFragmentPresenter
+    @Inject lateinit var ingredientsFragmentPresenter: IngredientsFragmentPresenter
 
     @BindView(R.id.rv_ingredient_list)
     lateinit var rvIngredientList: RecyclerView
