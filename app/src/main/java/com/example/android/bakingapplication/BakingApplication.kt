@@ -3,6 +3,7 @@ package com.example.android.bakingapplication
 import android.app.Activity
 import android.app.Application
 import android.content.Context
+import android.support.v4.app.Fragment
 
 import com.example.android.bakingapplication.dagger.component.ApplicationComponent
 import com.example.android.bakingapplication.dagger.component.DaggerApplicationComponent
@@ -12,11 +13,13 @@ import com.example.android.bakingapplication.dagger.module.StepFragmentModule
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-class BakingApplication : Application(), HasActivityInjector {
+class BakingApplication : Application(), HasActivityInjector, HasSupportFragmentInjector {
 
     @Inject lateinit var dispatchingActivityInjector: DispatchingAndroidInjector<Activity>
+    @Inject lateinit var dispatchingFragmentInjector: DispatchingAndroidInjector<Fragment>
 
     lateinit var applicationComponent: ApplicationComponent
     private var stepFragmentSubcomponent: StepFragmentSubcomponent? = null
@@ -34,6 +37,8 @@ class BakingApplication : Application(), HasActivityInjector {
     }
 
     override fun activityInjector(): AndroidInjector<Activity> = dispatchingActivityInjector
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingFragmentInjector
 
     fun createStepFragmentSubcomponent(stepFragmentContext: Context): StepFragmentSubcomponent {
         return applicationComponent.plus(StepFragmentModule(stepFragmentContext))

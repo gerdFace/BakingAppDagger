@@ -13,17 +13,13 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-class DetailListActivity : AppCompatActivity(), DetailListFragment.DetailItemCallbacks,
-                                                HasSupportFragmentInjector {
-
-    @Inject lateinit var dispatchingFragmentInjector: DispatchingAndroidInjector<Fragment>
+class DetailListActivity : AppCompatActivity(), DetailListFragment.DetailItemCallbacks {
 
     private var recipeName: String? = null
     private var recipeId: Int = 0
     private var twoPane: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_master_detail)
 
@@ -48,8 +44,6 @@ class DetailListActivity : AppCompatActivity(), DetailListFragment.DetailItemCal
 
         title = recipeName
     }
-
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingFragmentInjector
 
     override fun onRecipeDetailButtonClicked(position: Int) {
         if (!twoPane) {

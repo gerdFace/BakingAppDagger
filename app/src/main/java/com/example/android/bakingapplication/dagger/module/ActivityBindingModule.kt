@@ -15,6 +15,4 @@ abstract class ActivityBindingModule  {
     @ContributesAndroidInjector(modules = [DetailPagerActivityModule::class])
     abstract fun bindDetailPagerActivityInjector(): DetailPagerActivity
 
-    @ContributesAndroidInjector
-    abstract fun bindDetailListActivityInjector(): DetailListActivity
 }
