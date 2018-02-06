@@ -1,0 +1,20 @@
+Original: 
+
+Debug: 
+
+Total methods in app-debug.apk: 41549 (63.40% used)
+Total fields in app-debug.apk:  22195 (33.87% used)
+Total classes in app-debug.apk:  5139 (7.84% used)
+Methods remaining in app-debug.apk: 23986
+Fields remaining in app-debug.apk:  43340
+Classes remaining in app-debug.apk:  60396`
+
+Release:
+Total methods in app-release-unsigned.apk: 41507 (63.34% used)
+Total fields in app-release-unsigned.apk:  22185 (33.85% used)
+Total classes in app-release-unsigned.apk:  5130 (7.83% used)
+Methods remaining in app-release-unsigned.apk: 24028
+Fields remaining in app-release-unsigned.apk:  43350
+Classes remaining in app-release-unsigned.apk:  60405
+
+
