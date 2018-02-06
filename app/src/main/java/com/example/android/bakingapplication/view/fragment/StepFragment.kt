@@ -162,7 +162,7 @@ class StepFragment : Fragment(), StepFragmentView {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        application.releaseStepFragmentComponent()
+        application. releaseStepFragmentComponent()
     }
 
     private fun setDescriptionText(shortStepDescription: String, longStepDescription: String) {
