@@ -2,18 +2,28 @@ package com.example.android.bakingapplication.view.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.example.android.bakingapplication.R
 import com.example.android.bakingapplication.view.fragment.DetailListFragment
 import com.example.android.bakingapplication.view.fragment.StepFragment
+import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
+import javax.inject.Inject
 
-class DetailListActivity : AppCompatActivity(), DetailListFragment.DetailItemCallbacks {
+class DetailListActivity : AppCompatActivity(), DetailListFragment.DetailItemCallbacks,
+                                                HasSupportFragmentInjector {
+
+    @Inject lateinit var dispatchingFragmentInjector: DispatchingAndroidInjector<Fragment>
 
     private var recipeName: String? = null
     private var recipeId: Int = 0
     private var twoPane: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_master_detail)
 
@@ -38,6 +48,8 @@ class DetailListActivity : AppCompatActivity(), DetailListFragment.DetailItemCal
 
         title = recipeName
     }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingFragmentInjector
 
     override fun onRecipeDetailButtonClicked(position: Int) {
         if (!twoPane) {

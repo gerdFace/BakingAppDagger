@@ -19,12 +19,12 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import butterknife.BindView
 import butterknife.ButterKnife
-import com.example.android.bakingapplication.BakingApplication
 import com.example.android.bakingapplication.BakingApplicationWidget
 import com.example.android.bakingapplication.R
 import com.example.android.bakingapplication.adapter.DetailListAdapter
 import com.example.android.bakingapplication.model.Step
 import com.example.android.bakingapplication.presentation.DetailListFragmentPresenter
+import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 class DetailListFragment : Fragment(), DetailListFragmentView {
@@ -52,6 +52,19 @@ class DetailListFragment : Fragment(), DetailListFragmentView {
         fun onRecipeDetailButtonClicked(position: Int)
     }
 
+    // Ensure that host activity implements the callback interface
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+
+           try {
+            callbacks = context as DetailItemCallbacks?
+        } catch (e: ClassCastException) {
+            throw ClassCastException(context!!.toString() + " must implement OnImageClickListener")
+        }
+
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -75,8 +88,6 @@ class DetailListFragment : Fragment(), DetailListFragmentView {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        (activity?.application as BakingApplication).applicationComponent.inject(this)
 
         val layoutManager = LinearLayoutManager(this.activity, LinearLayoutManager.VERTICAL, false)
 
@@ -102,18 +113,6 @@ class DetailListFragment : Fragment(), DetailListFragmentView {
         bakingApplicationWidget.setLastAccessedRecipeId(recipeId)
         val ids = AppWidgetManager.getInstance(context).getAppWidgetIds(ComponentName(context!!, BakingApplicationWidget::class.java))
         bakingApplicationWidget.onUpdate(context, AppWidgetManager.getInstance(context), ids)
-    }
-
-    // Ensure that host activity implements the callback interface
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-
-        try {
-            callbacks = context as DetailItemCallbacks?
-        } catch (e: ClassCastException) {
-            throw ClassCastException(context!!.toString() + " must implement OnImageClickListener")
-        }
-
     }
 
     // Reset callback when fragment detaches from host activity
