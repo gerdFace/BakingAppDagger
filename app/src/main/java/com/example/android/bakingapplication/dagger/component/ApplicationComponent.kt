@@ -3,7 +3,6 @@ package com.example.android.bakingapplication.dagger.component
 import com.example.android.bakingapplication.BakingApplication
 import com.example.android.bakingapplication.BakingApplicationWidget
 import com.example.android.bakingapplication.dagger.module.*
-import com.example.android.bakingapplication.view.fragment.DetailListFragment
 import com.example.android.bakingapplication.view.fragment.IngredientsFragment
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -13,10 +12,10 @@ import javax.inject.Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
     ActivityBindingModule::class,
+    FragmentBindingModule::class,
     AppModule::class,
     MainActivityModule::class,
     IngredientsFragmentModule::class,
-    DetailListFragmentModule::class,
     RecipeRepositoryModule::class
 ])
 interface ApplicationComponent {
@@ -24,8 +23,6 @@ interface ApplicationComponent {
     fun inject(target: BakingApplication)
 
     fun inject(target: BakingApplicationWidget)
-
-    fun inject(target: DetailListFragment)
 
     fun inject(target: IngredientsFragment)
 
