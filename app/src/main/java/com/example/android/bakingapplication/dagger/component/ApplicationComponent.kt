@@ -15,7 +15,6 @@ import javax.inject.Singleton
     ActivityBindingModule::class,
     AppModule::class,
     MainActivityModule::class,
-    DetailPagerActivityModule::class,
     IngredientsFragmentModule::class,
     DetailListFragmentModule::class,
     RecipeRepositoryModule::class

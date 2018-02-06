@@ -8,9 +8,9 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityBindingModule  {
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [MainActivityModule::class])
     abstract fun bindMainActivityInjector(): MainActivity
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [DetailPagerActivityModule::class])
     abstract fun bindDetailPagerActivityInjector(): DetailPagerActivity
 }
