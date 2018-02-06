@@ -19,7 +19,7 @@ public class RecipeRepositoryImpl implements RecipeRepository {
 
     private RecipeRepository recipeNetworkSource;
 
-    public Map<Integer, RecipeData> cachedRecipes;
+    private Map<Integer, RecipeData> cachedRecipes;
 
     public RecipeRepositoryImpl(@Local RecipeRepository recipeDatabaseSource, @Network RecipeRepository recipeNetworkSource) {
         this.recipeDatabaseSource = recipeDatabaseSource;

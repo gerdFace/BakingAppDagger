@@ -29,14 +29,11 @@ import javax.inject.Inject
 
 class DetailListFragment : Fragment(), DetailListFragmentView {
 
-    @Inject
-    lateinit var detailListFragmentPresenter: DetailListFragmentPresenter
+    @Inject lateinit var detailListFragmentPresenter: DetailListFragmentPresenter
 
-    @BindView(R.id.rv_detail_list)
-    lateinit var rvDetailList: RecyclerView
+    @BindView(R.id.rv_detail_list) lateinit var rvDetailList: RecyclerView
 
-    @BindView(R.id.ingredient_card_container)
-    lateinit var ingredientCardContainer: CardView
+    @BindView(R.id.ingredient_card_container) lateinit var ingredientCardContainer: CardView
 
     @BindView(R.id.fragment_detail_list_constraint_container)
     lateinit var constraintLayout: ConstraintLayout

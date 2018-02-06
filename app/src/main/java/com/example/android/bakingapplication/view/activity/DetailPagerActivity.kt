@@ -19,11 +19,9 @@ import javax.inject.Inject
 
 class DetailPagerActivity : AppCompatActivity(), DetailPagerActivityView {
 
-    @Inject
-    lateinit var detailPagerActivityPresenter: DetailPagerActivityPresenter
+    @Inject lateinit var detailPagerActivityPresenter: DetailPagerActivityPresenter
 
-    @BindView(R.id.step_view_pager)
-    lateinit var stepViewPager: ViewPager
+    @BindView(R.id.step_view_pager) lateinit var stepViewPager: ViewPager
 
     private var stepDetailList: List<Step>? = null
     private var nameOfFoodItem: String? = null
@@ -58,8 +56,7 @@ class DetailPagerActivity : AppCompatActivity(), DetailPagerActivityView {
         if (fragmentStatePagerAdapter == null) {
             fragmentStatePagerAdapter = object : FragmentStatePagerAdapter(fragmentManager) {
                 override fun getItem(position: Int): Fragment {
-                    return StepFragment
-                            .newInstance(recipeId, position)
+                    return StepFragment.newInstance(recipeId, position)
                 }
 
                 override fun getCount(): Int {
@@ -69,7 +66,7 @@ class DetailPagerActivity : AppCompatActivity(), DetailPagerActivityView {
 
             stepViewPager.adapter = fragmentStatePagerAdapter
         } else {
-            fragmentStatePagerAdapter!!.notifyDataSetChanged()
+            fragmentStatePagerAdapter?.notifyDataSetChanged()
         }
 
         for (i in stepDetailList!!.indices) {
@@ -110,9 +107,9 @@ class DetailPagerActivity : AppCompatActivity(), DetailPagerActivityView {
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
-        outState!!.putInt(ID_OF_RECIPE_SELECTED, recipeId)
-        outState.putInt(STEP_INDEX, stepIndex)
-        outState.putString(NAME_OF_FOOD_SELECTED, nameOfFoodItem)
+        outState?.putInt(ID_OF_RECIPE_SELECTED, recipeId)
+        outState?.putInt(STEP_INDEX, stepIndex)
+        outState?.putString(NAME_OF_FOOD_SELECTED, nameOfFoodItem)
     }
 
     companion object {
