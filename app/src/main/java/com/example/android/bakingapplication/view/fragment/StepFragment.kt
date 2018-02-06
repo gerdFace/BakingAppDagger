@@ -50,12 +50,14 @@ class StepFragment : Fragment(), StepFragmentView {
 
     private val constraintSet = ConstraintSet()
     private val application: BakingApplication
-        get() = activity?.application as BakingApplication
+        get() = activity!!.application as BakingApplication
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         application.createStepFragmentComponent(context!!).inject(this)
     }
+
+// View bindings, etc
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

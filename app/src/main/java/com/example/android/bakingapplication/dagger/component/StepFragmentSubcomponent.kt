@@ -8,7 +8,7 @@ import dagger.Subcomponent
 
 @PerFragment
 @Subcomponent(modules = [StepFragmentPresenterModule::class])
-interface StepFragmentComponent {
+interface StepFragmentSubcomponent {
 
     fun inject(target: StepFragment)
 }

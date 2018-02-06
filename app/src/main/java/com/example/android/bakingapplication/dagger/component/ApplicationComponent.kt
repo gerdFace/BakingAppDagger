@@ -29,5 +29,5 @@ interface ApplicationComponent {
 
     fun inject(target: IngredientsFragment)
 
-    fun plus(module: StepFragmentPresenterModule): StepFragmentComponent
+    fun plus(module: StepFragmentPresenterModule): StepFragmentSubcomponent
 }

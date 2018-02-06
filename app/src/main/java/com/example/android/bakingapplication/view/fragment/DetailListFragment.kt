@@ -79,7 +79,7 @@ class DetailListFragment : Fragment(), DetailListFragmentView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity!!.application as BakingApplication).applicationComponent.inject(this)
+        (activity?.application as BakingApplication).applicationComponent.inject(this)
 
         val layoutManager = LinearLayoutManager(this.activity, LinearLayoutManager.VERTICAL, false)
 
